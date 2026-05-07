@@ -11,7 +11,7 @@ const projects = [
     description:
       "Backend service for a bicycle-focused application, built to manage data and API workflows.",
     tech: ["Backend", "API", "Database"],
-    link: "https://github.com/Estifanos16/bicycle-backend",
+    githubLink: "https://github.com/Estifanos16/bicycle-backend",
   },
   {
     title: "Bicycle Frontend",
@@ -20,7 +20,8 @@ const projects = [
     description:
       "Frontend interface for the bicycle application with user-facing screens and app navigation.",
     tech: ["Frontend", "React", "UI"],
-    link: "https://github.com/Estifanos16/bicycle_frontend",
+    githubLink: "https://github.com/Estifanos16/bicycle_frontend",
+    liveLink: "https://bicycle-frontend.vercel.app/",
   },
   {
     title: "Virtual Museum",
@@ -29,7 +30,7 @@ const projects = [
     description:
       "An interactive museum-style project for exploring exhibits and digital collections online.",
     tech: ["Interactive", "Web", "UI"],
-    link: "https://github.com/Estifanos16/virtual-museum",
+    githubLink: "https://github.com/Estifanos16/virtual-museum",
   },
   {
     title: "Portfolio Website",
@@ -38,7 +39,8 @@ const projects = [
     description:
       "Personal portfolio website for showcasing projects, skills, and contact information.",
     tech: ["React", "Tailwind CSS", "Portfolio"],
-    link: "https://github.com/Estifanos16/Estifanos16.github.io",
+    githubLink: "https://github.com/Estifanos16/Estifanos16.github.io",
+    liveLink: "https://portfolio-chi-plum-9ujxzihyw9.vercel.app/",
   },
   {
     title: "Offline AI",
@@ -47,7 +49,7 @@ const projects = [
     description:
       "An AI-focused project designed around local or offline assistant-style functionality.",
     tech: ["AI", "Offline", "Tools"],
-    link: "https://github.com/zola880/offline-ai",
+    githubLink: "https://github.com/zola880/offline-ai",
   },
 ];
 
@@ -110,14 +112,36 @@ export default function Projects({ darkMode }) {
               ))}
             </div>
 
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noreferrer"
-              className={darkMode ? "text-blue-400 hover:text-blue-300" : "text-blue-600 hover:text-blue-700"}
-            >
-              View on GitHub →
-            </a>
+            <div className="flex flex-wrap gap-4 items-center">
+              {project.githubLink && (
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={
+                    darkMode
+                      ? "inline-flex items-center rounded-full bg-slate-800 px-4 py-2 text-sm font-semibold text-blue-300 transition hover:bg-slate-700 hover:text-blue-200"
+                      : "inline-flex items-center rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-slate-200 hover:text-blue-800"
+                  }
+                >
+                  View on GitHub →
+                </a>
+              )}
+              {project.liveLink && (
+                <a
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={
+                    darkMode
+                      ? "inline-flex items-center rounded-full bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet-500"
+                      : "inline-flex items-center rounded-full bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-500"
+                  }
+                >
+                  View live demo →
+                </a>
+              )}
+            </div>
 
           </div>
         ))}
