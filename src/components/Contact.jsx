@@ -1,4 +1,6 @@
 const contactEmail = "abrhamestifanos17@gmail.com";
+const contactPhone = "+251977787709";
+const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}`;
 
 export default function Contact({ darkMode }) {
   return (
@@ -21,10 +23,23 @@ export default function Contact({ darkMode }) {
         <div className="flex flex-col md:flex-row justify-center gap-6 mb-10" data-reveal style={{ "--reveal-delay": "160ms" }}>
           
           <a
-            href={`mailto:${contactEmail}`}
-            className="px-6 py-3 bg-blue-600 rounded-xl hover:bg-blue-700 transition"
+            href={gmailComposeUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition"
           >
-            Email Me
+            {contactEmail}
+          </a>
+
+          <a
+            href={`tel:${contactPhone}`}
+            className={
+              darkMode
+                ? "px-6 py-3 border border-gray-600 rounded-xl hover:border-white transition"
+                : "px-6 py-3 border border-gray-300 rounded-xl hover:border-blue-600 transition"
+            }
+          >
+            {contactPhone}
           </a>
 
           <a
@@ -77,8 +92,8 @@ export default function Contact({ darkMode }) {
             required
             className={
               darkMode
-                ? "w-full mb-3 p-3 bg-black border border-gray-700 rounded-lg outline-none"
-                : "w-full mb-3 p-3 bg-white border border-gray-300 rounded-lg outline-none"
+                ? "w-full mb-3 p-3 bg-black text-white placeholder:text-gray-500 border border-gray-700 rounded-lg outline-none"
+                : "w-full mb-3 p-3 bg-white text-gray-950 placeholder:text-gray-500 border border-gray-300 rounded-lg outline-none"
             }
           />
 
@@ -89,8 +104,8 @@ export default function Contact({ darkMode }) {
             required
             className={
               darkMode
-                ? "w-full mb-3 p-3 bg-black border border-gray-700 rounded-lg outline-none"
-                : "w-full mb-3 p-3 bg-white border border-gray-300 rounded-lg outline-none"
+                ? "w-full mb-3 p-3 bg-black text-white placeholder:text-gray-500 border border-gray-700 rounded-lg outline-none"
+                : "w-full mb-3 p-3 bg-white text-gray-950 placeholder:text-gray-500 border border-gray-300 rounded-lg outline-none"
             }
           />
 
@@ -101,12 +116,12 @@ export default function Contact({ darkMode }) {
             required
             className={
               darkMode
-                ? "w-full mb-4 p-3 bg-black border border-gray-700 rounded-lg outline-none"
-                : "w-full mb-4 p-3 bg-white border border-gray-300 rounded-lg outline-none"
+                ? "w-full mb-4 p-3 bg-black text-white placeholder:text-gray-500 border border-gray-700 rounded-lg outline-none"
+                : "w-full mb-4 p-3 bg-white text-gray-950 placeholder:text-gray-500 border border-gray-300 rounded-lg outline-none"
             }
           ></textarea>
 
-          <button className="w-full py-3 bg-blue-600 rounded-xl hover:bg-blue-700 transition">
+          <button className="w-full py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">
             Send Message
           </button>
 

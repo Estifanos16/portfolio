@@ -3,27 +3,47 @@ import { useEffect, useRef, useState } from "react";
 const progressCards = [
   {
     title: "Computer Science Foundation",
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80",
+    imageAlt: "Computer science learning setup on a laptop",
     detail:
       "Learning programming fundamentals, data structures, databases, and how software systems work from front to back.",
   },
   {
     title: "Frontend Development",
+    image:
+      "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=500&q=80",
+    imageAlt: "Frontend web design on a computer screen",
     detail:
       "Building responsive React interfaces with clean layouts, reusable components, and user-friendly interactions.",
   },
   {
     title: "Backend Skills",
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80",
+    imageAlt: "Computer hardware and backend systems concept",
     detail:
       "Practicing Node.js, PHP, MySQL, APIs, and server logic so my projects can store data and solve real problems.",
   },
   {
     title: "Full-Stack Goal",
+    image:
+      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80",
+    imageAlt: "Developer working toward a full stack software goal",
     detail:
       "Growing toward full-stack development by connecting design, code, databases, and deployment into complete applications.",
   },
 ];
 
 const branchRevealPoints = [0.05, 0.3, 0.55, 0.78];
+
+function ProgressImage({ card }) {
+  return (
+    <span className="progress-card-visual">
+      <img src={card.image} alt={card.imageAlt} loading="lazy" />
+    </span>
+  );
+}
 
 export default function About({ darkMode }) {
   const [showMore, setShowMore] = useState(false);
@@ -141,6 +161,7 @@ export default function About({ darkMode }) {
               >
                 <span className="progress-dot" aria-hidden="true" />
                 <div>
+                  <ProgressImage card={card} />
                   <p className="progress-step">Step {index + 1}</p>
                   <h3>{card.title}</h3>
                   <p>{card.detail}</p>

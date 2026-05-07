@@ -12,6 +12,7 @@ export default function App() {
 
   return (
     <div
+      data-theme={darkMode ? "dark" : "light"}
       className={
         darkMode
           ? "bg-black text-white min-h-screen transition"
