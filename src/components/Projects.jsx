@@ -2,6 +2,7 @@ import bicycleDeliveryImage from "../assets/bicycle delivery.png";
 import offlineAiImage from "../assets/ofline AI.png";
 import portfolioImage from "../assets/portfolio.png";
 import virtualMuseumImage from "../assets/virtual museum.png";
+import internFinderImage from "../assets/intern finder.png";
 
 const projects = [
   {
@@ -50,6 +51,16 @@ const projects = [
       "An AI-focused project designed around local or offline assistant-style functionality.",
     tech: ["AI", "Offline", "Tools"],
     githubLink: "https://github.com/zola880/offline-ai",
+  },
+  {
+    title: "Internship Finder Website",
+    image: internFinderImage,
+    imageAlt: "Internship finder website screenshot",
+    description:
+      "A website for finding internships, connecting students with opportunities in various fields.",
+    tech: ["Frontend", "React", "Web"],
+    githubLink: "https://github.com/Estifanos16/frontend",
+    liveLink: "https://frontend-6qkj.vercel.app/register",
   },
 ];
 

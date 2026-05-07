@@ -28,6 +28,16 @@ export default function App() {
       <Projects darkMode={darkMode} />
       <About darkMode={darkMode} />
       <Contact darkMode={darkMode} />
+
+      <footer
+        className={
+          darkMode
+            ? "py-6 px-6 bg-gray-900 text-gray-400 text-center"
+            : "py-6 px-6 bg-gray-100 text-gray-600 text-center"
+        }
+      >
+        <p>&copy; {new Date().getFullYear()} Estifanos. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
