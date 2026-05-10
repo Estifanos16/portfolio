@@ -1,192 +1,109 @@
-import { useEffect, useRef, useState } from "react";
+﻿import ProgressHighway from "./ProgressHighway";
 
-const progressCards = [
-  {
-    title: "Computer Science Foundation",
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80",
-    imageAlt: "Computer science learning setup on a laptop",
-    detail:
-      "Learning programming fundamentals, data structures, databases, and how software systems work from front to back.",
-  },
-  {
-    title: "Frontend Development",
-    image:
-      "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=500&q=80",
-    imageAlt: "Frontend web design on a computer screen",
-    detail:
-      "Building responsive React interfaces with clean layouts, reusable components, and user-friendly interactions.",
-  },
-  {
-    title: "Backend Skills",
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80",
-    imageAlt: "Computer hardware and backend systems concept",
-    detail:
-      "Practicing Node.js, PHP, MySQL, APIs, and server logic so my projects can store data and solve real problems.",
-  },
-  {
-    title: "Full-Stack Goal",
-    image:
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80",
-    imageAlt: "Developer working toward a full stack software goal",
-    detail:
-      "Growing toward full-stack development by connecting design, code, databases, and deployment into complete applications.",
-  },
-];
-
-const branchRevealPoints = [0.05, 0.3, 0.55, 0.78];
-
-function ProgressImage({ card }) {
-  return (
-    <span className="progress-card-visual">
-      <img src={card.image} alt={card.imageAlt} loading="lazy" />
-    </span>
-  );
-}
-
-export default function About({ darkMode }) {
-  const [showMore, setShowMore] = useState(false);
-  const [runnerProgress, setRunnerProgress] = useState(0);
-  const highwayRef = useRef(null);
-
-  useEffect(() => {
-    if (!showMore) {
-      setRunnerProgress(0);
-      return undefined;
-    }
-
-    const updateRunnerProgress = () => {
-      const highway = highwayRef.current;
-
-      if (!highway) {
-        return;
-      }
-
-      const rect = highway.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const start = viewportHeight * 0.72;
-      const end = viewportHeight * 0.1;
-      const scrollRange = rect.height + viewportHeight * 0.35 - (start - end);
-      const progress = (start - rect.top) / scrollRange;
-      setRunnerProgress(Math.min(Math.max(progress, 0), 1));
-    };
-
-    updateRunnerProgress();
-    window.addEventListener("scroll", updateRunnerProgress, { passive: true });
-    window.addEventListener("resize", updateRunnerProgress);
-
-    return () => {
-      window.removeEventListener("scroll", updateRunnerProgress);
-      window.removeEventListener("resize", updateRunnerProgress);
-    };
-  }, [showMore]);
+export default function About() {
+  const skills = [
+    { category: "Frontend", items: ["React", "JavaScript (JS)", "HTML/CSS", "Tailwind CSS", "Responsive Design"] },
+    { category: "Backend", items: ["Node.js", "Java", "PHP", "Express.js", "REST APIs", "Authentication"] },
+    { category: "Database", items: ["SQL", "MySQL", "MongoDB", "Database Design"] },
+    { category: "Mobile & Tools", items: ["Flutter", "Git/GitHub", "Vite", "npm", "Full Stack Development"] },
+  ];
 
   return (
-    <section
-      id="about"
-      className={darkMode ? "py-28 px-6 bg-gray-950 text-white" : "py-28 px-6 bg-gray-50 text-gray-950"}
-    >
-        
-      <div className="max-w-5xl mx-auto text-center">
-        
-        <h2 className="text-4xl font-bold mb-8" data-reveal>
-          About Me
-        </h2>
+    <section id="about" className="py-20 px-6 bg-gray-50 text-gray-900">
+      <div className="max-w-6xl mx-auto">
 
-        <p data-reveal style={{ "--reveal-delay": "80ms" }} className={darkMode ? "text-gray-400 text-lg leading-relaxed mb-6" : "text-gray-600 text-lg leading-relaxed mb-6"}>
-          I am Estifanos, a Computer Science student and web developer who enjoys using code
-          to turn ideas into real, useful applications.
-        </p>
-
-        <p data-reveal style={{ "--reveal-delay": "160ms" }} className={darkMode ? "text-gray-400 text-lg leading-relaxed mb-6" : "text-gray-600 text-lg leading-relaxed mb-6"}>
-          My coding journey is focused on full-stack development. I work with React for modern
-          interfaces, JavaScript for interaction, and backend tools like Node.js, PHP, and MySQL
-          to build projects that can handle real data.
-        </p>
-
-        <p data-reveal style={{ "--reveal-delay": "240ms" }} className={darkMode ? "text-gray-400 text-lg leading-relaxed" : "text-gray-600 text-lg leading-relaxed"}>
-          I am still learning every day, but I care about writing clean code, improving step by step,
-          and building software that feels simple, practical, and helpful.
-        </p>
-
-        {/* Skills */}
-        <div className="mt-10 flex flex-wrap justify-center gap-3" data-reveal style={{ "--reveal-delay": "320ms" }}>
-          {["React", "JavaScript", "Tailwind", "Node.js", "PHP", "MySQL", "Git"].map((skill, i) => (
-            <span
-              key={i}
-              className={darkMode ? "bg-gray-800 px-3 py-1 rounded-full text-sm" : "bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm"}
-            >
-              {skill}
-            </span>
-          ))}
+        {/* Section Header */}
+        <div className="mb-16" data-reveal>
+          <p className="text-orange-500 font-semibold text-sm uppercase tracking-wide mb-2">About Me</p>
+          <h2 className="text-5xl font-bold text-gray-900 mb-6">
+            Full Stack Developer & Computer Science Student
+          </h2>
         </div>
 
-        <div className="mt-12" data-reveal style={{ "--reveal-delay": "400ms" }}>
-          <button
-            type="button"
-            onClick={() => setShowMore((current) => !current)}
-            className={`more-about-button ${showMore ? "is-open" : ""}`}
-            aria-expanded={showMore}
-          >
-            <span>More</span>
-            <span>About Me</span>
-          </button>
-        </div>
+        {/* Story */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
 
-        {showMore && (
-          <div
-            ref={highwayRef}
-            className={`progress-highway ${runnerProgress >= 0.995 ? "runner-finished" : ""} ${darkMode ? "progress-highway-dark" : "progress-highway-light"}`}
-            style={{
-              "--runner-line-height": `${runnerProgress * 100}%`,
-              "--runner-top": `${runnerProgress * 100}%`,
-              "--runner-offset": `${runnerProgress * 42}px`,
-            }}
-          >
-            <div className="highway-line" aria-hidden="true" />
-            <div className="tiny-runner" aria-hidden="true">
-              <span className="runner-head" />
-              <span className="runner-body" />
-              <span className="runner-arm runner-arm-left" />
-              <span className="runner-arm runner-arm-right" />
-              <span className="runner-leg runner-leg-left" />
-              <span className="runner-leg runner-leg-right" />
-            </div>
+          {/* Text Content */}
+          <div className="space-y-6" data-reveal>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              I'm Estifanos, a passionate developer from Addis Ababa, currently pursuing a degree in Computer Science. Over the past two years, I've built multiple full-stack applications and am actively seeking an internship to apply my skills in a professional environment.
+            </p>
 
-            {progressCards.map((card, index) => (
-              <article
-                key={card.title}
-                className={`progress-card runner-reveal ${runnerProgress >= branchRevealPoints[index] ? "is-visible" : ""} ${index % 2 === 0 ? "branch-left" : "branch-right"}`}
-              >
-                <span className="progress-dot" aria-hidden="true" />
-                <div>
-                  <ProgressImage card={card} />
-                  <p className="progress-step">Step {index + 1}</p>
-                  <h3>{card.title}</h3>
-                  <p>{card.detail}</p>
-                </div>
-              </article>
-            ))}
+            <p className="text-gray-700 text-lg leading-relaxed">
+              My journey started with curiosity about how things work on the web. Now, I focus on building clean, scalable applications using **Node.js, Java, or PHP** on the backend and **React or Flutter** for web and mobile interfaces.
+            </p>
 
-            <div
-              className={`progress-finish runner-reveal ${runnerProgress >= 0.985 ? "is-visible" : ""}`}
-            >
-              <span className="motivation-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" role="img">
-                  <path d="M12 2.5 14.9 8.6 21.5 9.5 16.7 14.2 17.8 20.8 12 17.7 6.2 20.8 7.3 14.2 2.5 9.5 9.1 8.6 12 2.5Z" />
-                </svg>
-              </span>
-              <div>
-                <h3>Keep Building Forward</h3>
-                <p>Every project is progress.</p>
-              </div>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              When I'm not coding, I'm learning new technologies, contributing to projects, or helping other developers. I believe in continuous learning and staying updated with modern web development practices.
+            </p>
+
+            <div className="pt-6">
+              <a href="#contact" className="inline-block px-8 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors duration-200">
+                Let's Work Together
+              </a>
             </div>
           </div>
-        )}
 
+          {/* Stats / Highlights */}
+          <div className="grid grid-cols-2 gap-6" data-reveal style={{ "--reveal-delay": "100ms" }}>
+            <div className="bg-white p-8 rounded-xl border border-gray-200">
+              <div className="text-4xl font-bold text-orange-500 mb-2">3+</div>
+              <p className="text-gray-600 font-medium">Full Stack Projects</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl border border-gray-200">
+              <div className="text-4xl font-bold text-orange-500 mb-2">100%</div>
+              <p className="text-gray-600 font-medium">Commitment to Quality</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl border border-gray-200">
+              <div className="text-4xl font-bold text-orange-500 mb-2">2+</div>
+              <p className="text-gray-600 font-medium">Years Experience</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl border border-gray-200">
+              <div className="text-4xl font-bold text-orange-500 mb-2">∞</div>
+              <p className="text-gray-600 font-medium">Always Learning</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Skills Section */}
+        <div className="mb-16" data-reveal style={{ "--reveal-delay": "200ms" }}>
+          <h3 className="text-3xl font-bold text-gray-900 mb-12">Technical Skills</h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {skills.map((skillGroup, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-xl border border-gray-200">
+                <h4 className="text-lg font-bold text-gray-900 mb-6 pb-4 border-b-2 border-orange-500">
+                  {skillGroup.category}
+                </h4>
+                <ul className="space-y-3">
+                  {skillGroup.items.map((skill, i) => (
+                    <li key={i} className="flex items-center gap-2 text-gray-700">
+                      <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <ProgressHighway />
+
+        {/* CTA */}
+        <div className="text-center py-12 px-8 bg-white rounded-xl border border-gray-200" data-reveal>
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to collaborate?</h3>
+          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            I'm always interested in new projects and opportunities. Let's build something amazing together.
+          </p>
+          <a
+            href="#contact"
+            className="inline-block px-8 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors duration-200"
+          >
+            Get In Touch
+          </a>
+        </div>
       </div>
-
     </section>
   );
 }

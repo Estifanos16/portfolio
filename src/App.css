@@ -1,5 +1,3 @@
-@import "tailwindcss"; 
-
 .counter {
   font-size: 16px;
   padding: 5px 10px;
@@ -21,6 +19,11 @@
 
 .hero {
   position: relative;
+  /* Centralize transform logic for easier adjustment */
+  --hero-perspective: 2000px;
+  --hero-rotation: rotateZ(300deg) rotateX(44deg) rotateY(39deg);
+  --hero-scale: 1.4;
+  --vite-scale: 0.8;
 
   .base,
   .framework,
@@ -44,8 +47,7 @@
     z-index: 1;
     top: 34px;
     height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
+    transform: perspective(var(--hero-perspective)) var(--hero-rotation) scale(var(--hero-scale));
   }
 
   .vite {
@@ -53,8 +55,7 @@
     top: 107px;
     height: 26px;
     width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
+    transform: perspective(var(--hero-perspective)) var(--hero-rotation) scale(var(--vite-scale));
   }
 }
 

@@ -6,21 +6,28 @@ import internFinderImage from "../assets/intern finder.png";
 
 const projects = [
   {
-    title: "Bicycle Backend",
-    image: bicycleDeliveryImage,
-    imageAlt: "Bicycle delivery project screenshot",
-    description:
-      "Backend service for a bicycle-focused application, built to manage data and API workflows.",
-    tech: ["Backend", "API", "Database"],
-    githubLink: "https://github.com/Estifanos16/bicycle-backend",
+    title: "Internship Finder Platform",
+    image: internFinderImage,
+    imageAlt: "Internship finder website screenshot",
+    description: "A web platform connecting students with internship opportunities. Features job listings, filtering, and student applications.",
+    tech: ["React", "Node.js", "MySQL", "Full Stack"],
+    githubLink: "https://github.com/Estifanos16/frontend",
+    liveLink: "https://frontend-6qkj.vercel.app/register",
   },
   {
-    title: "Bicycle Frontend",
+    title: "Book Sharing App",
+    image: portfolioImage,
+    imageAlt: "Book sharing app screenshot",
+    description: "A community platform for sharing and discovering books. Users can list books, connect with other readers, and exchange recommendations.",
+    tech: ["PHP", "MySQL", "Bootstrap"],
+    githubLink: "https://github.com/Estifanos16/BookSharingApp",
+  },
+  {
+    title: "Bicycle Delivery Service",
     image: bicycleDeliveryImage,
-    imageAlt: "Bicycle delivery frontend screenshot",
-    description:
-      "Frontend interface for the bicycle application with user-facing screens and app navigation.",
-    tech: ["Frontend", "React", "UI"],
+    imageAlt: "Bicycle delivery project screenshot",
+    description: "Full-stack application for a bicycle-based delivery service. Includes order management, real-time tracking, and payment processing.",
+    tech: ["React", "Node.js", "MongoDB", "Full Stack"],
     githubLink: "https://github.com/Estifanos16/bicycle_frontend",
     liveLink: "https://bicycle-frontend.vercel.app/",
   },
@@ -28,135 +35,113 @@ const projects = [
     title: "Virtual Museum",
     image: virtualMuseumImage,
     imageAlt: "Virtual museum project screenshot",
-    description:
-      "An interactive museum-style project for exploring exhibits and digital collections online.",
-    tech: ["Interactive", "Web", "UI"],
+    description: "An interactive 3D museum experience for exploring digital art collections and historical exhibits online.",
+    tech: ["React", "Three.js", "WebGL"],
     githubLink: "https://github.com/Estifanos16/virtual-museum",
   },
   {
     title: "Portfolio Website",
     image: portfolioImage,
     imageAlt: "Portfolio website project screenshot",
-    description:
-      "Personal portfolio website for showcasing projects, skills, and contact information.",
-    tech: ["React", "Tailwind CSS", "Portfolio"],
-    githubLink: "https://github.com/Estifanos16/Estifanos16.github.io",
-    liveLink: "https://portfolio-chi-plum-9ujxzihyw9.vercel.app/",
+    description: "Personal developer portfolio showcasing projects, skills, and contact information. Built with React and Tailwind CSS.",
+    tech: ["React", "Tailwind CSS", "Vite"],
+    githubLink: "https://github.com/Estifanos16/portfolio",
+    liveLink: "https://estifanos-portfolio.vercel.app/",
   },
   {
-    title: "Offline AI",
+    title: "Offline AI Assistant",
     image: offlineAiImage,
     imageAlt: "Offline AI project screenshot",
-    description:
-      "An AI-focused project designed around local or offline assistant-style functionality.",
-    tech: ["AI", "Offline", "Tools"],
+    description: "A local AI-powered assistant that works offline. Features text processing and intelligent responses without cloud dependency.",
+    tech: ["Python", "AI/ML", "Local Processing"],
     githubLink: "https://github.com/zola880/offline-ai",
-  },
-  {
-    title: "Internship Finder Website",
-    image: internFinderImage,
-    imageAlt: "Internship finder website screenshot",
-    description:
-      "A website for finding internships, connecting students with opportunities in various fields.",
-    tech: ["Frontend", "React", "Web"],
-    githubLink: "https://github.com/Estifanos16/frontend",
-    liveLink: "https://frontend-6qkj.vercel.app/register",
   },
 ];
 
-function ProjectImage({ project }) {
+export default function Projects() {
   return (
-    <div className="project-photo-wrap">
-      <img src={project.image} alt={project.imageAlt} className="project-photo" loading="lazy" />
-      <div className="project-photo-shade" aria-hidden="true" />
-    </div>
-  );
-}
-
-export default function Projects({ darkMode }) {
-  return (
-    <section
-      id="projects"
-      className={darkMode ? "py-20 px-6 bg-black text-white" : "py-20 px-6 bg-white text-gray-950"}
-    >
-      
-      <h2 className="text-4xl font-bold text-center mb-12" data-reveal>
-        My Projects
-      </h2>
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <section id="projects" className="py-20 px-6 bg-white text-gray-900">
+      <div className="max-w-6xl mx-auto">
         
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            data-reveal
-            style={{ "--reveal-delay": `${(index % 3) * 120}ms` }}
-            className={
-              darkMode
-                ? "p-6 rounded-2xl border border-gray-800 transition transform hover:-translate-y-1 bg-gray-900"
-                : "p-6 rounded-2xl border border-gray-200 transition transform hover:-translate-y-1 bg-gray-50"
-            }
-          >
+        {/* Section Header */}
+        <div className="mb-16" data-reveal>
+          <p className="text-orange-500 font-semibold text-sm uppercase tracking-wide mb-2">Featured Work</p>
+          <h2 className="text-5xl font-bold text-gray-900 mb-4">
+            Projects I've Built
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl">
+            A collection of full-stack applications, frontend interfaces, and backend systems I've developed.
+          </p>
+        </div>
 
-            <ProjectImage project={project} />
-            
-            <h3 className="text-xl font-semibold mb-3">
-              {project.title}
-            </h3>
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              data-reveal
+              style={{ "--reveal-delay": `${(index % 3) * 100}ms` }}
+              className="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
+            >
+              {/* Project Image */}
+              <div className="relative h-48 overflow-hidden bg-gray-200">
+                <img
+                  src={project.image}
+                  alt={project.imageAlt}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
 
-            <p className={darkMode ? "text-gray-400 mb-4" : "text-gray-600 mb-4"}>
-              {project.description}
-            </p>
+              {/* Project Content */}
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-500 transition-colors">
+                  {project.title}
+                </h3>
 
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.tech.map((t, i) => (
-                <span
-                  key={i}
-                  className={
-                    darkMode
-                      ? "text-xs bg-gray-800 px-2 py-1 rounded"
-                      : "text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded"
-                  }
-                >
-                  {t}
-                </span>
-              ))}
+                <p className="text-gray-600 text-sm mb-4 flex-grow">
+                  {project.description}
+                </p>
+
+                {/* Tech Stack Tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tech.map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="text-xs font-medium bg-orange-50 text-orange-700 px-3 py-1 rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Links */}
+                <div className="flex gap-3 flex-wrap">
+                  {project.githubLink && (
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm font-semibold text-gray-900 hover:text-orange-500 transition-colors flex items-center gap-1"
+                    >
+                      GitHub <span className="text-orange-500">→</span>
+                    </a>
+                  )}
+                  {project.liveLink && (
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm font-semibold text-orange-500 hover:text-orange-600 transition-colors flex items-center gap-1"
+                    >
+                      Live Demo <span>→</span>
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
-
-            <div className="flex flex-wrap gap-4 items-center">
-              {project.githubLink && (
-                <a
-                  href={project.githubLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={
-                    darkMode
-                      ? "inline-flex items-center rounded-full bg-slate-800 px-4 py-2 text-sm font-semibold text-blue-300 transition hover:bg-slate-700 hover:text-blue-200"
-                      : "inline-flex items-center rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-slate-200 hover:text-blue-800"
-                  }
-                >
-                  View on GitHub →
-                </a>
-              )}
-              {project.liveLink && (
-                <a
-                  href={project.liveLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={
-                    darkMode
-                      ? "inline-flex items-center rounded-full bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-violet-500"
-                      : "inline-flex items-center rounded-full bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-500"
-                  }
-                >
-                  View live demo →
-                </a>
-              )}
-            </div>
-
-          </div>
-        ))}
-
+          ))}
+        </div>
       </div>
     </section>
   );
