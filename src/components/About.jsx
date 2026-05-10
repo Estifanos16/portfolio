@@ -3,7 +3,7 @@
 export default function About() {
   const skills = [
     { category: "Frontend", items: ["React", "JavaScript (JS)", "HTML/CSS", "Tailwind CSS", "Responsive Design"] },
-    { category: "Backend", items: ["Node.js", "Java", "PHP", "Express.js", "REST APIs", "Authentication"] },
+    { category: "Backend", items: ["Node.js", "Java", "PHP", "Express.js", "Authentication"] },
     { category: "Database", items: ["SQL", "MySQL", "MongoDB", "Database Design"] },
     { category: "Mobile & Tools", items: ["Flutter", "Git/GitHub", "Vite", "npm", "Full Stack Development"] },
   ];
@@ -26,7 +26,7 @@ export default function About() {
           {/* Text Content */}
           <div className="space-y-6" data-reveal>
             <p className="text-gray-700 text-lg leading-relaxed">
-              I'm Estifanos, a passionate developer from Addis Ababa, currently pursuing a degree in Computer Science. Over the past two years, I've built multiple full-stack applications and am actively seeking an internship to apply my skills in a professional environment.
+              I'm Estifanos, a passionate developer from Bahir Dar, currently pursuing a degree in Computer Science. Over the past two years, I've built multiple full-stack applications and am actively seeking an internship to apply my skills in a professional environment.
             </p>
 
             <p className="text-gray-700 text-lg leading-relaxed">

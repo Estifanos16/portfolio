@@ -43,7 +43,7 @@ export default function Hero() {
           </div>
 
           {/* Content Grid */}
-          <div className="relative z-20 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 p-8 md:p-12 lg:p-16">
+          <div className="relative z-20 grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-8 lg:gap-12 p-8 md:p-12 lg:p-16">
             
             {/* LEFT SIDE: Text Content */}
             <div className="flex flex-col justify-center">
@@ -120,7 +120,7 @@ export default function Hero() {
 
                 {/* Image container */}
                 <div 
-                  className={`relative rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 ${
+                  className={`relative rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 max-w-sm mx-auto ${
                     isHovered ? "scale-105 shadow-3xl" : "scale-100"
                   }`}
                 >
