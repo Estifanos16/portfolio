@@ -8,7 +8,12 @@ export default function Contact() {
         
         {/* Section Header */}
         <div className="text-center mb-16" data-reveal>
-          <p className="text-orange-500 font-semibold text-sm uppercase tracking-wide mb-2">Get In Touch</p>
+          <p className="text-orange-500 font-semibold text-sm uppercase tracking-wide mb-2 flex justify-center items-center gap-2">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Get In Touch
+          </p>
           <h2 className="text-5xl font-bold text-gray-900 mb-6">
             Let's Build Something Together
           </h2>
@@ -25,7 +30,7 @@ export default function Contact() {
             href={`mailto:${contactEmail}`}
             className="p-6 bg-gray-50 border border-gray-200 rounded-xl hover:border-orange-500 hover:bg-orange-50 transition-all duration-200 text-center group"
           >
-            <div className="text-3xl mb-4 text-orange-500 group-hover:scale-110 transition-transform">✉️</div>
+            <div className="text-3xl mb-4 text-orange-500 group-hover:scale-110 transition-transform" role="img" aria-label="Email icon">✉️</div>
             <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
             <p className="text-gray-600 break-all hover:text-orange-500">{contactEmail}</p>
           </a>
@@ -35,7 +40,7 @@ export default function Contact() {
             href={`tel:${contactPhone}`}
             className="p-6 bg-gray-50 border border-gray-200 rounded-xl hover:border-orange-500 hover:bg-orange-50 transition-all duration-200 text-center group"
           >
-            <div className="text-3xl mb-4 text-orange-500 group-hover:scale-110 transition-transform">📱</div>
+            <div className="text-3xl mb-4 text-orange-500 group-hover:scale-110 transition-transform" role="img" aria-label="Phone icon">📱</div>
             <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
             <p className="text-gray-600 hover:text-orange-500">{contactPhone}</p>
           </a>
@@ -47,7 +52,7 @@ export default function Contact() {
             rel="noreferrer"
             className="p-6 bg-gray-50 border border-gray-200 rounded-xl hover:border-orange-500 hover:bg-orange-50 transition-all duration-200 text-center group"
           >
-            <div className="text-3xl mb-4 text-orange-500 group-hover:scale-110 transition-transform">💼</div>
+            <div className="text-3xl mb-4 text-orange-500 group-hover:scale-110 transition-transform" role="img" aria-label="LinkedIn icon">💼</div>
             <h3 className="font-semibold text-gray-900 mb-2">LinkedIn</h3>
             <p className="text-gray-600 hover:text-orange-500">Connect with me</p>
           </a>

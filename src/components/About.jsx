@@ -14,7 +14,12 @@ export default function About() {
 
         {/* Section Header */}
         <div className="mb-16" data-reveal>
-          <p className="text-orange-500 font-semibold text-sm uppercase tracking-wide mb-2">About Me</p>
+          <p className="text-orange-500 font-semibold text-sm uppercase tracking-wide mb-2 flex items-center gap-2">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            About Me
+          </p>
           <h2 className="text-5xl font-bold text-gray-900 mb-6">
             Full Stack Developer & Computer Science Student
           </h2>
@@ -72,7 +77,11 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skills.map((skillGroup, idx) => (
               <div key={idx} className="bg-white p-8 rounded-xl border border-gray-200">
-                <h4 className="text-lg font-bold text-gray-900 mb-6 pb-4 border-b-2 border-orange-500">
+                <h4 className="text-lg font-bold text-gray-900 mb-6 pb-4 border-b-2 border-orange-500 flex items-center gap-2">
+                  {skillGroup.category === "Frontend" && <span className="text-xl">🎨</span>}
+                  {skillGroup.category === "Backend" && <span className="text-xl">⚙️</span>}
+                  {skillGroup.category === "Database" && <span className="text-xl">🗄️</span>}
+                  {skillGroup.category === "Mobile & Tools" && <span className="text-xl">📱</span>}
                   {skillGroup.category}
                 </h4>
                 <ul className="space-y-3">

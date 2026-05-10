@@ -58,6 +58,23 @@ const projects = [
   },
 ];
 
+const techIcons = {
+  "React": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  "MySQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+  "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  "PHP": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+  "Bootstrap": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+  "Tailwind CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  "Three.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg",
+  "Vite": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg",
+  "Java": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  "JavaScript (JS)": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  "HTML/CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  "Full Stack": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+};
+
 export default function Projects() {
   return (
     <section id="projects" className="py-20 px-6 bg-white text-gray-900">
@@ -65,7 +82,12 @@ export default function Projects() {
         
         {/* Section Header */}
         <div className="mb-16" data-reveal>
-          <p className="text-orange-500 font-semibold text-sm uppercase tracking-wide mb-2">Featured Work</p>
+          <p className="text-orange-500 font-semibold text-sm uppercase tracking-wide mb-2 flex items-center gap-2">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+            Featured Work
+          </p>
           <h2 className="text-5xl font-bold text-gray-900 mb-4">
             Projects I've Built
           </h2>
@@ -108,33 +130,40 @@ export default function Projects() {
                   {project.tech.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="text-xs font-medium bg-orange-50 text-orange-700 px-3 py-1 rounded-full"
+                      className="text-xs font-medium bg-orange-50 text-orange-700 px-3 py-1 rounded-full flex items-center gap-1.5"
                     >
+                      {techIcons[tech] && <img src={techIcons[tech]} alt="" className="w-3 h-3" />}
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Links */}
-                <div className="flex gap-3 flex-wrap">
+                {/* Branded Project Buttons */}
+                <div className="project-links">
                   {project.githubLink && (
                     <a
                       href={project.githubLink}
                       target="_blank"
-                      rel="noreferrer"
-                      className="text-sm font-semibold text-gray-900 hover:text-orange-500 transition-colors flex items-center gap-1"
+                      rel="noopener noreferrer"
+                      className="btn-project btn-github"
                     >
-                      GitHub <span className="text-orange-500">→</span>
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                      </svg>
+                      Code
                     </a>
                   )}
                   {project.liveLink && (
                     <a
                       href={project.liveLink}
                       target="_blank"
-                      rel="noreferrer"
-                      className="text-sm font-semibold text-orange-500 hover:text-orange-600 transition-colors flex items-center gap-1"
+                      rel="noopener noreferrer"
+                      className="btn-project btn-live"
                     >
-                      Live Demo <span>→</span>
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      Live Demo
                     </a>
                   )}
                 </div>

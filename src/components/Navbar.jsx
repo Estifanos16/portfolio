@@ -4,9 +4,9 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: "Projects", href: "#projects" },
-    { label: "About", href: "#about" },
-    { label: "Contact", href: "#contact" },
+    { label: "Projects", href: "#projects", icon: "🚀" },
+    { label: "About", href: "#about", icon: "👤" },
+    { label: "Contact", href: "#contact", icon: "✉️" },
   ];
 
   return (
@@ -24,8 +24,9 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="font-medium hover:text-orange-500 transition-colors duration-200"
+              className="font-medium hover:text-orange-500 transition-colors duration-200 flex items-center gap-1.5"
             >
+              <span>{link.icon}</span>
               {link.label}
             </a>
           ))}
@@ -50,9 +51,10 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="font-medium text-gray-700 hover:text-orange-500 transition-colors"
+                className="font-medium text-gray-700 hover:text-orange-500 transition-colors flex items-center gap-2"
                 onClick={() => setMenuOpen(false)}
               >
+                <span>{link.icon}</span>
                 {link.label}
               </a>
             ))}
