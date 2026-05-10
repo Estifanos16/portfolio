@@ -12,7 +12,7 @@ export default function Hero() {
 // marker
 
 
-    <section className="min-h-screen flex items-center justify-center px-4 pt-20 pb-12 bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <section id="home" className="min-h-screen flex items-center justify-center px-4 pt-20 pb-12 bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <div className="w-full max-w-7xl">
         
         {/* Premium Hero Container */}
