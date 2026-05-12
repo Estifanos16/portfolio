@@ -141,7 +141,7 @@ const ProgressHighway = () => {
               className={`progress-card runner-reveal ${index % 2 === 0 ? 'branch-left' : 'branch-right'}`}
             >
               <div className="progress-dot" />
-              <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-shadow hover:shadow-xl">
+              <div className="bg-[#fff0f5] dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-shadow hover:shadow-xl">
                 <div className="progress-card-visual">
                   <img 
                     src={item.image} 

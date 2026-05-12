@@ -46,7 +46,7 @@ const projects = [
     description: "Personal developer portfolio showcasing projects, skills, and contact information. Built with React and Tailwind CSS.",
     tech: ["React", "Tailwind CSS", "Vite"],
     githubLink: "https://github.com/Estifanos16/portfolio",
-    liveLink: "https://estifanos-portfolio.vercel.app/",
+    
   },
   {
     title: "Offline AI Assistant",
