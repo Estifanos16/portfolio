@@ -38,6 +38,7 @@ const projects = [
     description: "An interactive 3D museum experience for exploring digital art collections and historical exhibits online.",
     tech: ["React", "Three.js", "WebGL"],
     githubLink: "https://github.com/Estifanos16/virtual-museum",
+    liveLink: "https://virtual-museum-drxb.onrender.com/",
   },
   {
     title: "Portfolio Website",
